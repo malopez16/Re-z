@@ -1,4 +1,4 @@
-# Template
+# Re-Z
 
 Proyecto de Tecnologías y aplicaciones Web - IIC2513.
 [Hosteado en Heroku](https://reztita-e6.herokuapp.com/)
