@@ -1,0 +1,337 @@
+$re-z-main: #834141;
+$re-z-red: #7A0D0D;
+$re-z-light-pink: #F7E3E3 ;
+$re-z-brown: #210202;
+$re-z-light-brown: #3D0707;
+$re-z-yellow: #E8D77B;
+
+* {
+  font-family: Verdana, sans-serif;
+}
+body {
+  box-sizing: border-box;
+  min-width: 1270px;
+  padding-top: 84px;
+  padding-left: 120px;
+  padding-right: 120px;
+  background-color: white;
+  min-height: 1000px;
+  margin: 0 auto;
+
+  // Border:
+  //border-width: 180px;
+  border-style: solid;
+  border-color: #e6e6e6;
+
+}
+
+#landing{
+  background-image: url("https://res.cloudinary.com/dajm9fvtd/image/upload/c_scale,h_768,o_50/v1558566250/artem-beliaikin-618577-unsplash_yih4jt.jpg");
+  min-height: 600px;
+  min-width: 500px;
+}
+
+header {
+  padding: 10px;
+  font-size: 25px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid rgb(235, 235, 235);
+  background: white;
+  height: 48x;
+  display:inline-block;
+}
+
+header input[type=submit] {
+    color: $re-z-main;
+    border: 0;
+    font-size: 25px;
+    font-family: Verdana;
+    text-align: center;
+    background: transparent;
+    line-height: 29px;
+    text-decoration: none;
+    margin: 0px;
+
+}
+
+
+table input[type=submit] {
+  background-color: transparent;
+  color: $re-z-main
+}
+
+input[type=submit] {
+  border: 0;
+  font-family: Verdana;
+  color: white;
+  background-color: $re-z-main;
+  border-radius: 5px;
+  font-size: 20px;
+  margin: 8px;
+  margin-left: 0px;
+}
+
+header .options {
+  float: left;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 25px;
+  line-height: 29px;
+  border-radius: 4px;
+}
+
+header #notification-state-icon{
+  margin-right: 10px;
+}
+
+
+#notification-state-icon{
+  overflow: hidden;
+  min-height: 100%;
+  width: 23px;
+  height: 23px;
+  border-top: 10px;
+}
+
+#Notificationsbox{
+  position: absolute;
+  top: 80px;
+  right: 250px;
+  background-color: white;
+  max-width: 500px;
+  padding: 10px;
+}
+
+header .options:hover {
+  background-color: #7931317d;
+  color: black;
+}
+
+.header-right {
+  display:inline-block;
+  float: right;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 30px;
+    color: $re-z-red;
+}
+
+#Landingcallsbox{
+  color: $re-z-brown;
+  float: right;
+  margin: 155px 84px 0px 0px;
+  background-color: white;
+  padding: 34px 107px 39px 0px;
+
+}
+
+#Landingcallsbox h2{
+  margin-left: 185px;
+}
+
+#Landingcallsbox p{
+  margin-left: 91px;
+  font-weight: bold;
+  color: $re-z-brown;
+}
+
+#Landingcallsbox a{
+  margin-right: 91px;
+  font-weight: bold;
+}
+
+
+.main_button{
+  background-color: $re-z-red;
+  float: right;
+  color: white;
+  font-size: 20px;
+  margin: 78px 92px 0px 0px;
+  padding: 20px 20px 20px 20px;
+  text-decoration: none;
+  min-width: 150px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#feed{
+  width: 100%;
+  color: black;
+  display: block;
+  margin-bottom: 40px;
+}
+
+a {
+  font-weight: 300;
+  font-size: 20;
+  color: rgb(121, 49, 49);
+  text-decoration: none;
+}
+
+.login{
+  color: black;
+  font-weight: 600;
+  font-size: 16px;
+  float: right;
+  padding: 15px;
+  display: block;
+
+}
+// https://www.w3schools.com/css/css_form.asp
+input[type=text],input[type=email],input[type=password],input[type=number],textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid rgb(78, 78, 78);
+  border-radius: 4px;
+}
+
+
+
+#generic-list {
+  border-collapse: collapse;
+  width: 100%;
+
+  tr:nth-child(even) td {background-color: white;}
+  tr:hover td {background-color: $re-z-yellow;}
+
+  th {
+    background-color: $re-z-red;
+    color: white;
+    text-align: center;
+    padding: 5px;
+  }
+
+  td {
+    text-align: center;
+    background-color: $re-z-light-pink;
+    border: 1px;
+    padding: 10px;
+    color: $re-z-main;
+  }
+}
+#feedHead {
+  font-size: 2em;
+  text-decoration: none;
+  width: 100%;
+
+}
+#feedDescr {
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+  color: black;
+}
+
+.required {
+  color: red;
+  display:inline-block;
+}
+
+.notification{
+  padding: 10px;
+
+    border-radius: 5px;
+}
+
+
+a.button {
+    border-radius: 5px;
+    padding-top: 8px;
+    background: $re-z-main;
+    color: white;
+    padding-left: 8px;
+    padding-right: 8px;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 30px;
+    width: max-content;
+}
+
+a.cook-button{
+  padding: 15px;
+  text-align: center;
+  background: $re-z-red;
+  color: $re-z-light-pink;
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 8px;
+  padding-right: 8px;
+  display: block;
+  margin-top: 10px;
+  height: auto;
+  width: auto;
+}
+
+.container-description {
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: $re-z-yellow;
+    color: #7a0d0d;
+    margin-top: 20px;
+    width: auto;
+}
+
+a.inline-button {
+    border-radius: 5px;
+    padding-top: 8px;
+    background: $re-z-main;
+    color: white;
+    padding-left: 8px;
+    padding-right: 8px;
+    display: inline-block;
+    margin-top: 10px;
+    height: 30px;
+    width: max-content;
+}
+
+#feed .receta{
+    display: table-cell;
+    text-align: center;
+    width: 342px;
+    height: 200px;
+}
+
+#feed img{
+  object-fit: cover;
+  width: 90%;
+  padding-top: 13px;
+}
+
+.receta .picture{
+  background-color: $re-z-yellow;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 7px;
+}
+
+.receta a{
+  color: $re-z-red;
+}
+
+#unread-notification {
+  font-weight: bold;
+  font-size: 80%;
+  background-color: #ffdddd;
+}
+
+#read-notification {
+  text-decoration: none;
+  background-color: #e5e6e8;
+  font-size: 80%
+}
+
+#main-name{
+  margin-left: 70px;
+}

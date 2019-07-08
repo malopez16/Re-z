@@ -1,0 +1,40 @@
+<div>
+    <% if (locals.errors) { %>
+        <div class="errors">
+        You need to fix the following errors:
+        <ul>
+            <% errors.forEach(error => { %>
+            <li><%= error.message %></li>
+            <% }); %>
+        </ul>
+        </div>
+    <% } %>
+    <form action="<%= submitRecipePath %>" enctype="multipart/form-data" method="post">
+        <% if (!recipe.isNewRecord) { %>
+        <input type="hidden" name="_method" value="patch" />
+        <% } %>
+        <div>
+        <div>
+        <label for="name">Nombre <div class = required>*</div> </label>
+        <input type="text" name="name" value="<%= recipe.name %>" required />
+        </div>
+        <label for="calories">Calorías</label>
+        <input type="number" name="calories" value="<%= recipe.calories %>" />
+        </div>
+        <div>
+        <label for="description">Descripción</label>
+        <textarea type="text" name="description" rows="4" cols= "130"><%= recipe.description %> </textarea>
+        </div>
+        <div>
+        <label for="img_file">Seleccionar imagen de receta</label>
+        <input type="file" name="img_file" accept=".jpg, .jpeg, .png" />
+        </div>
+        <div>
+        <% if (recipe.isNewRecord) { %>
+            <input type="submit" name="create" value="Create" />
+        <% } else { %>
+            <input type="submit" name="update" value="Update" />
+        <% } %>
+        </div>
+    </form>
+</div>

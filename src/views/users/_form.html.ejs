@@ -1,0 +1,50 @@
+
+<div>
+  <% if (locals.errors) { %>
+    <div class="errors">
+      Debes solucionar los siguientes errores:
+      <ul>
+        <% errors.forEach(error => { %>
+          <li><%= error.message %></li>
+        <% }); %>
+      </ul>
+    </div>
+  <% } %>
+  <form action="<%= submitUserPath %>" method="post">
+    <% if (!user.isNewRecord) { %>
+      <input type="hidden" name="_method" value="patch" />
+    <% } %>
+    <div class="field">
+      <label for="username">Usuario <div class = required>*</div></label>
+      <input id="register_form_username" type="text" name="username" value="<%= user.username %>" required />
+      <p id = "register_error_username"> </p>
+    </div>
+    <div class="field">
+      <label for="first_name">Nombre</label> <div class = required>*</div></label>
+      <input id="register_form_name" type="text" name="first_name" value="<%= user.first_name %>" />
+      <p id = "register_error_name"> </p>
+    </div>
+    <div class="field">
+      <label for="last_name">Apellido</label> <div class = required>*</div></label>
+      <input id="register_form_lastname" type="text" name="last_name" value="<%= user.last_name %>" />
+      <p id = "register_error_lastname"> </p>
+    </div>
+    <div class="field">
+      <label for="email">Email <div class = required>*</div> </label>
+      <input id="register_form_email" type="email" name="email" value="<%= user.email %>" required />
+      <p id = "register_error_email"> </p>
+    </div>
+    <div class="field">
+      <label for="password">Contraseña <div class = required>*</div> </label>
+      <input id="register_form_password" minlength = 6 type="password" name="password" value="<%= user.password %>" required />
+      <p id = "register_error_password"> </p>
+    </div>
+    <div class="field">
+      <% if (user.isNewRecord) { %>
+        <input id="submit_button" type="submit" name="create" value="Create" id="button" />
+      <% } else { %>
+        <input id="submit_button" type="submit" name="update" value="Update" />
+      <% } %>
+    </div>
+  </form>
+</div>

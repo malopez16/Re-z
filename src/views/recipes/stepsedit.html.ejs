@@ -1,0 +1,18 @@
+<form action="<%= submitRecipeStepPath(recipe, step) %>" enctype="multipart/form-data" method="post">
+    <input type="hidden" name="_method" value="patch" />
+    <div>
+        <label for="name">Name</label>
+        <input type="text" name="name"  value = "<%= step.name %>" />
+    </div>
+    <div>
+        <label for="description">description</label>
+        <input type="text" name="description" value = "<%= step.description %>"/>
+    </div>
+
+    <div>
+      <label for="img_file">Seleccionar imagen de receta</label>
+      <input type="file" name="img_file" accept=".jpg, .jpeg, .png .svg" />
+    </div>
+
+    <input type="submit" name="update" value="Update" />
+</form>

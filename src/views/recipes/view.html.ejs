@@ -1,0 +1,137 @@
+
+<h2> <%= recipe.name %> </h2>
+<h3> Esta es la receta favorita de <%= favorites_count %> usuarios</h3>
+
+<% if (logged) {%>
+  <div>
+      <%if (is_favorite) {%>
+        <form action="<%- removeFavoritePath %>" method="POST">
+            <input type="hidden" name="_method" value="delete" />
+            <input type="submit" value="Eliminar de Favoritas" />
+        </form>
+      <%} else {%>
+        <form action="<%- addAsFavotirePath %>" method="POST">
+            <input type="submit" value="Agregar a Favoritas" />
+        </form>
+      <%}%>
+  </div>
+<%}%>
+
+<div class="container-recipe-show">
+
+  <% if (recipe.img_url) { %>
+      <img src="<%= recipe.img_url %>" alt="imagen no disponible"  class="show" >
+  <% } else { %>
+      <img src="<%= default_img_url %>" alt="imagen no disponible"  class="show">
+  <% } %>
+
+  <div class="recipe-right">
+    <p> Calorías : <%= recipe.calories  %>   </p>
+    <div class="container-description">
+      <h3> Descripción </h3>
+      <p> <%= recipe.description %>  </p>
+    </div>
+
+  </div>
+
+</div>
+
+
+<% if(stepsList.length != 0) {%>
+      <a class="cook-button" href="<%- BrowseStepsPath %>"> Preparar </a>
+
+      <h3> Resumen de pasos </h3>
+      <table id = "generic-list">
+        <thead>
+          <tr>
+            <th> Nombre </th>
+            <% if (permission) { %>
+              <th> Accion </th>
+            <% } %>
+          </tr>
+        </thead>
+      <% stepsList.forEach((step) => { %>
+        <tr>
+          <td> <a href="<%- viewRecipeStepPath(recipe, step) %>"><%- step.name %></a></td>
+          <% if (permission) {%>
+            <td><form action="<%- deleteRecipeStepPath(recipe, step) %>" method="POST">
+                <input type="hidden" name="_method" value="delete" />
+                <input type="submit" value="Borrar" />
+            </form></td>
+          <% }%>
+        </tr>
+      <% })%>
+      </table>
+
+  <% } else {%>
+      <p class="alert"> Esta receta no tiene pasos todavia </p>
+  <% } %>
+
+  <%if (permission) {%>
+    <a class="button" href="<%- newStepPath %>">Agregar nuevo paso</a>
+  <%}%>
+
+
+<% if(ingredients.length != 0 ) {%>
+    <h3> Ingredientes </h3>
+    <table id = "generic-list">
+      <thead>
+        <tr>
+          <th> Nombre </th>
+          <th> Calorias </th>
+          <%if (permission) {  %>
+            <th> Accion </th>
+          <%}%>
+         </tr>
+      </thead>
+    <% ingredients.forEach((ingredient) => { %>
+      <tr>
+        <td><%= ingredient.name %></td>
+        <td><%= ingredient.calories %></td>
+        <%if (permission)  { %>
+        <td><form action="<%- removeingredientPath(recipe, ingredient) %>" method="POST">
+            <input type="hidden" name="_method" value="delete" />
+            <input type="submit" value="remover ingrediente" />
+        </form></td>
+        <%}%>
+      </tr>
+    <% })%>
+    </table>
+<% } else {%>
+    <p class="alert"> Esta receta no tiene ingredientes todavia </p>
+<% } %>
+
+<%if (permission) {%>
+  <a class= "button" href="<%- submitRecipeIngredientPath %>">Agregar nuevo ingrediente</a>
+<% }%>
+
+<div class="container-comments">
+<h3> Comentarios: </h3>
+<% if (commentsList.length != 0) {%>
+
+  <% commentsList.forEach(comment => { %>
+    <div class="comment">
+    <h4><%- comment.author.username %></h4>
+    <p> <%- comment.content %></p>
+    <p class="date"> <%- comment.date %></p>
+    <% if (logged) {%>
+      <% if (currentUser.id == comment.author.id) {%>
+        <form action="<%- deleteCommentPath(recipe.id, comment.id) %>" method="POST">
+          <input type="hidden" name="_method" value="delete" />
+          <input type="submit" value="Eliminar" />
+        </form>
+      <%}%>
+    <% } %>
+    </div>
+  <% })%>
+
+<% } else {%>
+  <p>Aún no hay comentarios por mostrar </p>
+<% } %>
+<% if (logged) {%>
+  <h4><a class="button" href="<%- addCommentPath %>">Agregar un comentario</a></h4>
+<% } %>
+
+</div>
+
+<h4><a class="button" href="<%- recipePath %>">Ir a recetas</a></h4>

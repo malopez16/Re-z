@@ -1,0 +1,44 @@
+$re-z-main: #834141;
+$re-z-red: #7A0D0D;
+$re-z-light-pink: #F7E3E3 ;
+$re-z-brown: #210202;
+$re-z-light-brown: #3D0707;
+$re-z-yellow: #E8D77B;
+
+
+.container-recipe-show {
+  display: flex;
+  width: 100%;
+
+  .container-description {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    border-radius: 0px;
+    margin-left: 10px;
+    width: initial;
+    background-color:  $re-z-light-pink;
+    flex: 1;
+  }
+}
+
+.recipe-right {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  p {
+    color: $re-z-red;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+
+}
+
+p.alert {
+  color: $re-z-red;
+}
+
+
+img.show {
+  max-width: 250px;
+  max-height: 250px;
+}

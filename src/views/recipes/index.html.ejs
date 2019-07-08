@@ -1,0 +1,38 @@
+
+<h1>Todas las recetas disponibles</h1>
+<% if (!recipesList.length) { %>
+  <p>Actualmente no hay recetas</p>
+<% } else { %>
+  <table id = "generic-list">
+    <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Calorías</th>
+          <th>Descripción</th>
+          <th>Creador </th>
+          <th>Fecha de Creación</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% recipesList.forEach((recipe) => { %>
+        <tr>
+          <td><a href="<%- viewRecipePath(recipe) %>"><%- recipe.name %></a></td>
+          <td><%- recipe.calories %></td>
+          <td><%- recipe.description %></td>
+          <% if (owners[recipe.id]) {%>
+            <td><%- owners[recipe.id].first_name %></td>
+          <%} else {%>
+            <td> no tiene usuario</td>
+          <%} %>
+          <td><%= recipe.createdAt.toISOString().substring(0, 10) %></td>
+
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<% } %>
+
+<%if (logged){%>
+  <a href="<%- newRecipePath %>"> Agregar Receta</a>
+<%}%>
+<h4><a href="<%- IndexPath %>">Feed</a></h4>

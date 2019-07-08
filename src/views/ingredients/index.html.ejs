@@ -1,0 +1,42 @@
+<h1>¡Listado de los ingredientes para cocinar!</h1>
+<% if (!ingredientsList.length) { %>
+  <p>Actualmente no hay ingredientes</p>
+<% } else { %>
+  <table id="generic-list">
+    <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Calorías</th>
+          <th>Creador</th>
+          <% if (currentUser && currentUser.admin) {%>
+            <th colspan="2">Actions</th>
+          <% } %>
+        </tr>
+    </thead>
+    <tbody>
+      <% ingredientsList.forEach((ingredient) => { %>
+        <tr>
+          <td><%- ingredient.name %></td>
+          <td><%- ingredient.calories %></td>
+          <% if (owners[ingredient.id]) {%>
+            <td><%- owners[ingredient.id].first_name %></td>
+          <%} else {%>
+            <td> no tiene usuario</td>
+          <%} %>
+
+          <% if (currentUser && currentUser.admin) {%>
+            <td><a href="<%- editIngredientPath(ingredient) %>">Editar</a></td>
+            <td>
+              <form action="<%- deleteIngredientPath(ingredient) %>" method="POST">
+                <input type="hidden" name="_method" value="delete" />
+                <input type="submit" value="Delete" />
+              </form>
+            </td>
+          <% } %>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<% } %>
+
+<a href="<%- newIngredientPath %>">Añadir ingrediente</a>

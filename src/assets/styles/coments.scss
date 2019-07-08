@@ -1,0 +1,44 @@
+$re-z-main: #834141;
+$re-z-red: #7A0D0D;
+$re-z-light-pink: #F7E3E3 ;
+$re-z-brown: #210202;
+$re-z-light-brown: #3D0707;
+$re-z-yellow: #E8D77B;
+
+.comment {
+  background-color: $re-z-light-pink;
+  padding-left: 6px;
+  padding-bottom: 4px;
+  border: 1px solid $re-z-red;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.container-comments {
+  margin-top: 8px;
+  background-color: white;
+}
+
+.comment h4 {
+  color: $re-z-red;
+  margin: 5px;
+}
+
+.comment p {
+  font-size: 16px;
+  margin: 5px;
+  margin-bottom: 0px;
+}
+
+.comment p.date {
+  font-size: 12px;
+}
+
+
+.comment input[type=submit]{
+  font-size: 12px;
+  text-decoration: underline;
+  background-color: transparent;
+  color: $re-z-red;
+  margin: 0px;
+}

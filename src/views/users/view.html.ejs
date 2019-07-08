@@ -1,0 +1,82 @@
+<h2> <%= user.first_name  %> <%= user.last_name %> </h2>
+
+Notificaciones de telegram:
+<%= telegram_state %>
+
+<form action="<%- changeTelegramStatus %>" method="POST">
+    <input type="submit" value="Activar/Desactivar"  />
+</form>
+
+
+Usuario de Telegram (sin @):
+<form action="<%- changeTelegramUsername %>" method="POST">
+  <div>
+    <label for="Telegram_Username"></label>
+    <input type="text" name="telegramname" value="<%= user.telegram_id %>" required />
+  </div>
+  <input type = "submit" value ="Actualizar" />
+</form> 
+
+<p> Recetas Creadas: </p>
+<table id = "generic-list">
+  <thead>
+    <tr>
+      <th> Nombre </th>
+      <th> Calorias </th>
+      <th> Descripción </th>
+      <%if (permission) {  %>
+        <th colspan="2" > Accion </th>
+      <%}%>
+      </tr>
+  </thead>
+
+<% OwnedRecipes.forEach( recipe => { %>
+  <tr>
+    <td>  <a href="<%= RecipePath(recipe) %>"><%= recipe.name %></a></td>
+    <td> <%= recipe.calories %></td>
+    <td> <%= recipe.description %> </td>
+    <%if (permission) {%>
+        <td> <form action="<%-  editRecipePath(recipe) %>" method="POST">
+            <input type="hidden" name="_method" value="get" />
+            <input type="submit" value="editar" />
+        </form></td>
+        <td> <form action="<%- deleteRecipePath(recipe) %>" method="POST">
+            <input type="hidden" name="_method" value="delete" />
+            <input type="submit" value="borrar" />
+        </form></td>
+    <% }%>
+  </tr>
+<% })%>
+</table>
+
+<%if (permission) {%>
+  <form action="<%- newRecipePath %>" method="POST">
+      <input type="hidden" name="_method" value="get" />
+      <input type="submit" value="Nueva Receta" />
+  </form>
+<% } %>
+
+<p> Recetas Favoritas: </p>
+<table id = "generic-list">
+  <thead>
+    <tr>
+      <th> Nombre </th>
+      <th> Calorias </th>
+      <th> Descripción </th>
+      </tr>
+  </thead>
+
+<% favorites.forEach( recipe => { %>
+  <tr>
+    <td>  <a href="<%= RecipePath(recipe) %>"><%= recipe.name %></a></td>
+    <td> <%= recipe.calories %></td>
+    <td> <%= recipe.description %> </td>
+  </tr>
+<% })%>
+</table>
+
+
+<form action="<%- listRecipePath %>" method="POST">
+    <input type="hidden" name="_method" value="get" />
+    <input type="submit" value="ver recetas" />
+</form>

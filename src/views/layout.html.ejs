@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>IIC2513 - RE-Z</title>
+    <% if (env !== 'development') { %>
+      <link rel="stylesheet" href="<%= assetPath('app.css') %>">
+    <% } %>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+
+  </head>
+<div id="header">
+  <body>
+    <header>
+      <a href="<%- IndexPath %>"  class="options" id = "main-name">Re-z</a>
+      <div class= "header-right">
+          <% if (logged) { %>
+            <div class = "options" id = "notification-state-icon"></div>
+            <div id = "Notificationsbox">
+              <div id="notifications">Error Loading React components</div>
+            </div>
+            <a href="<%= searchPath%>" class="options"> Buscar  </a>
+            <a href="<%= UserPath(currentUser)%>" class="options"> <%= currentUser.first_name%>  </a>
+            <form action="<%- destroySessionPath %>" method="POST"  class="options">
+              <input type="hidden" name="_method" value="delete" />
+              <input type="submit" value="Log out" />
+            </form>
+
+          <% } else {%>
+            <a href="<%= searchPath%>" class="options"> Buscar  </a>
+            <a  href="<%= newSessionPath %>"  class="options">Ingresar</a>
+            <a  href="<%- newUserPath %>"  class="options"> Registro </a>
+          <% }%>
+    </div>
+    </header>
+    <%- body %>
+    <script src="<%= assetPath('app.js') %>"></script>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+<p>
+  Bienvenidos a Re-z, en donde, podras crear recetas, y buscar
+  recetas creadas por otros usuarios. y lograr prepararte un bajon con los
+  ingredientes que tengas en casa!
+</p>
+
+<h4><a href="<%- recipePath %>">Ver las Recetas para preparar </a></h4>
+<h4><a href="<%- ingredientPath %>">Ver los ingredientes a disposicion </a></h4>
+<h4><a href="<%- userPath %>"> crea un usuario! </a></h4>
+
+<% if (logged) { %>
+<h4> Bienvenido <%= currentUser.first_name %> <h4>
+<% }%>

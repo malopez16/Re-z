@@ -1,0 +1,56 @@
+<body>
+
+
+<div id = "landing">
+  <div id = "Landingcallsbox">
+
+  <h2 >¡A cocinar!</h2>
+
+  <div>
+  <p>
+    ¡Excelentes recetas te estan esperando!
+  </p>
+  </div>
+
+  <div>
+     <a class="main_button" href="<%- recipePath %>">Recetas </a>
+  
+   </div>
+
+  </div>
+</div>
+<div id= "feed">
+  <h2>Recetas Recientes </h2>
+
+
+  <% recipesList.forEach((recipe) => { %>
+    <div class = "receta">
+
+    <div class = "picture">
+    <% if (recipe.img_url) { %>
+      <img src="<%= recipe.img_url %>" alt="imagen no disponible"  height="200" width="200" >
+    <% } else { %>
+        <img src="<%= default_img_url %>" alt="imagen no disponible"  height="200" width="200">
+    <% } %>
+    <a id = "feedHead" href="<%- viewRecipePath(recipe) %>"><%- recipe.name %></a>
+    <div id = "feedDescr">
+      <%- recipe.description %>
+    </div>
+
+    </div>
+    </div>
+  <% }) %>
+
+</div>
+<div id="react-app">Error Loading React components</div>
+
+  <!-- ... other HTML ... -->
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+
+
+</body>

@@ -1,0 +1,37 @@
+<h2>Usuarios</h2>
+<% if (!usersList.length) { %>
+  <p>No results</p>
+<% } else { %>
+
+  <table id="users-list">
+    <thead>
+        <tr>
+          <th>Username</th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Email</th>          
+          <th colspan="2">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% usersList.forEach((user) => { %>
+        <tr>
+          <td><%- user.username %></td>
+          <td><%- user.first_name %></td>
+          <td><%- user.last_name %></td>
+          <td><%- user.email %></td>
+          <td><a href="<%- editUserPath(user) %>">Edit</a></td>
+          <td>
+            <form action="<%- deleteUserPath(user) %>" method="POST">
+              <input type="hidden" name="_method" value="delete" />
+              <input type="submit" value="Delete" />
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
+<% } %>
+
+<a href="<%- newUserPath %>">¡Crea una cuenta!</a>

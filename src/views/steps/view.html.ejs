@@ -1,0 +1,31 @@
+<h2> <%= step.name %> </h2>
+
+<% if (step.img_url) { %>
+    <img src="<%= step.img_url %>" alt="imagen no disponible"  class="show" >
+<% } else { %>
+    <img src="<%= default_img_url %>" alt="imagen no disponible"  class="show">
+<% } %>
+
+
+<%if (permission) {%>
+  <a class= "button" href="<%- editRecipeStepPath(recipe, step) %>">Editar</a>
+<% } %>
+
+
+<div class="container-description">
+  <h3> Descripción: </h3>
+  <p> <%= step.description %> </p>
+</div>
+
+<div>
+<% if(theresprevious != 0) {%>
+    <a class= "inline-button" href = "<%- PreviousStepPath %>"> Anterior</a>
+<% } %>
+
+<% if(theresnext == 1) {%>
+    <a class= "inline-button" href = "<%- NextStepPath %>"> Siguiente</a>
+<% }%>
+
+</div>
+
+<td><a class= "button" href="<%- viewRecipePath(recipe) %>">Volver a <%- recipe.name %></a></td>

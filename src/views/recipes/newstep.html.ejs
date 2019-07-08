@@ -1,0 +1,18 @@
+<form action="<%= submitRecipeStepPath %>" enctype="multipart/form-data" method="post">
+    <div>
+        <label for="name">Name <div class = required>*</div> </label>
+        <input type="text" name="name" required/>
+    </div>
+    <div>
+        <label for="description">description</label>
+        <input type="text" name="description"/>
+    </div>
+
+    <div>
+      <label for="img_file">Seleccionar imagen de receta</label>
+      <input type="file" name="img_file" accept=".jpg, .jpeg, .png .svg" />
+    </div>
+
+    <input type="submit" name="update" value="Update" />
+
+</form>

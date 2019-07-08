@@ -1,0 +1,32 @@
+<div>
+    <% if (locals.errors) { %>
+        <div class="errors">
+        You need to fix the following errors:
+        <ul>
+            <% errors.forEach(error => { %>
+            <li><%= error.message %></li>
+            <% }); %>
+        </ul>
+        </div>
+    <% } %>
+    <form action="<%= submitIngredientPath %>" method="post">
+        <% if (!ingredient.isNewRecord) { %>
+        <input type="hidden" name="_method" value="patch" />
+        <% } %>
+        <div>
+        <div>
+        <label for="name">Name</label>
+        <input type="text" name="name" value="<%= ingredient.name %>" />
+        </div>
+        <label for="calories">Calorías</label>
+        <input type="number" name="calories" value="<%= ingredient.calories %>" />
+        </div>
+        <div>
+        <% if (ingredient.isNewRecord) { %>
+            <input type="submit" name="create" value="Create" />
+        <% } else { %>
+            <input type="submit" name="update" value="Update" />
+        <% } %>
+        </div>
+    </form>
+</div>
