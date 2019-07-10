@@ -1,7 +1,7 @@
 # Re-Z
 
 Proyecto de Tecnologías y aplicaciones Web - IIC2513.
-[Hosteado en Heroku](https://reztita-e6.herokuapp.com/)
+[Hosteado en Heroku](https://rezproject.herokuapp.com/)
 
 ---------------------------------------------------------------------------------
 Template built with [koa](http://koajs.com/) for IIC2513 - Tecnologías y Aplicaciones Web, Pontificia Universidad Católica de Chile.
